@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('regist', 'App\Http\Controllers\UsersController@regist');
+Route::get('form', 'App\Http\Controllers\UsersController@regist');
