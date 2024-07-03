@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('form', 'App\Http\Controllers\UsersController@regist');
+Route::post('/confirm', 'App\Http\Controllers\UsersController@regist_post');
