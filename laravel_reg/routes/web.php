@@ -13,5 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//アカウント登録画面
 Route::get('form', 'App\Http\Controllers\UsersController@regist');
+//アカウント登録確認画面
 Route::post('/confirm', 'App\Http\Controllers\UsersController@regist_post');

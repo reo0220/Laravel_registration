@@ -44,6 +44,12 @@ main{
     margin: 0 auto;
 }
 
+.botton_back{
+    float: left;
+    margin-left: 15px;
+    margin-right:40px;
+}
+
 footer{
     position: fixed;
     left: 0;

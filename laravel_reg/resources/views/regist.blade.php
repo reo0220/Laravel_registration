@@ -16,7 +16,7 @@
         </ul>
         <main>
             <h2>アカウント登録</h2>
-            <form method="POST" action="{{action('App\Http\Controllers\UsersController@regist_post')}}">
+            <form method="POST" action="/confirm">
                 @csrf
                 <ul class = "ul">
                     <li>
