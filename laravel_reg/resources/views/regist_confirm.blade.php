@@ -71,8 +71,30 @@
                 <form method = "GET" action ="/form">
                     <input type = "submit" class = "botton_back" value = "前に戻る">
                 </form>
-                
                 <form method = "POST" action ="/complete">
+                    @csrf
+                    <input type = "hidden" value = "<?php echo $family_name; ?>" name = "family_name">
+                    <input type = "hidden" value = "<?php echo $last_name; ?>" name = "last_name">
+                    <input type = "hidden" value = "<?php echo $family_name_kana; ?>" name = "family_name_kana">
+                    <input type = "hidden" value = "<?php echo $last_name_kana; ?>" name = "last_name_kana">
+                    <input type = "hidden" value = "<?php echo $mail; ?>" name = "mail">
+                    <input type = "hidden" value = "<?php echo $password; ?>" name = "password">
+                    <!--男を選択した場合０、女の場合１-->
+                    <input type = "hidden" value = "<?php if($gender == "男"){  
+                                                                echo 0;
+                                                            } else{
+                                                                echo 1;
+                                                            }?>" name = "gender">
+                    <input type = "hidden" value = "<?php echo $postal_code; ?>" name = "postal_code">
+                    <input type = "hidden" value = "<?php echo $prefecture; ?>" name = "prefecture">
+                    <input type = "hidden" value = "<?php echo $address_1; ?>" name = "address_1">
+                    <input type = "hidden" value = "<?php echo $address_2; ?>" name = "address_2">
+                    <!--一般を選択した場合０、管理者を選択した場合１-->
+                    <input type = "hidden" value = "<?php if($authority == "一般"){  
+                                                                echo 0;
+                                                            } else{
+                                                                echo 1;
+                                                            }?>" name = "authority">
                     <input type = "submit" class = "botton_regist" value = "登録する">
                 </form>    
             </ul>
