@@ -11,22 +11,26 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id',100)->primary();
-            $table->varchar('family_name',100);
-            $table->varchar('last_name',100);
-            $table->varchar('family_name_kana',100);
-            $table->varchar('last_name_kana',100);
-            $table->varchar('mail',255);
-            $table->varchar('password',255);
-            $table->int('gender',1);
-            $table->int('postal_code',7);
-            $table->varchar('prefecture',100);
-            $table->varchar('address_1',100);
-            $table->varchar('address_2',255);
-            $table->int('authority',1);
-
-        });
+        if(!Schema::hasTable('users')){
+            Schema::create('users', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('family_name',100);
+            $table->string('last_name',100);
+            $table->string('family_name_kana',100);
+            $table->string('last_name_kana',100);
+            $table->string('mail',255);
+            $table->string('password',255);
+            $table->integer('gender');
+            $table->integer('postal_code');
+            $table->string('prefecture',100);
+            $table->string('address_1',100);
+            $table->string('address_2',255);
+            $table->integer('authority');
+            $table->integer('delete_flag');
+            $table->datetime('registered_time')->useCurrent()->nullable(false);
+            $table->datetime('update_time')->useCurrent()->useCurrentOnUpdate()->nullable(false);
+            });
+        }
     }
 
     /**
