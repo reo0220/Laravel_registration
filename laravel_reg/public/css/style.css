@@ -50,6 +50,25 @@ main{
     margin-right:40px;
 }
 
+.complete_message{
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+    margin-top: 200px;
+}
+
+.complete_error_message{
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+    margin-top: 200px;
+    color: red;
+}
+
+.complete_h2{
+    margin-top: 60px;
+}
+
 footer{
     position: fixed;
     left: 0;

@@ -18,4 +18,4 @@ Route::get('form', 'App\Http\Controllers\UsersController@regist');
 //アカウント登録確認画面
 Route::post('/confirm', 'App\Http\Controllers\UsersController@regist_post');
 //アカウント登録完了画面
-Route::post('/complete','App\Http\Controllers\UsersController@regist_complete');
+Route::post('/complete','App\Http\Controllers\UsersController@store');

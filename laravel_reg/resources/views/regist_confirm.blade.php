@@ -95,6 +95,7 @@
                                                             } else{
                                                                 echo 1;
                                                             }?>" name = "authority">
+                    <input type = "hidden" value = 0 name = "delete_flag">                                  
                     <input type = "submit" class = "botton_regist" value = "登録する">
                 </form>    
             </ul>
