@@ -19,3 +19,5 @@ Route::get('form', 'App\Http\Controllers\UsersController@regist');
 Route::post('/confirm', 'App\Http\Controllers\UsersController@regist_post');
 //アカウント登録完了画面
 Route::post('/complete','App\Http\Controllers\UsersController@store');
+//トップページ
+Route::get('/top', 'App\Http\Controllers\UsersController@top');

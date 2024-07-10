@@ -20,6 +20,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    //usersテーブルのカラム名（自動採番・登録されるカラム以外）
     protected $fillable = [
         'family_name',
         'last_name',

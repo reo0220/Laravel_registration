@@ -14,18 +14,9 @@
             <li>問い合わせ</li>
             <li>その他</li>
         </ul>
-        <h2 class = "complete_h2">アカウント登録完了画面</h2>
-        <div class = "complete_message">
-            @if(session('flash_message'))
-                    <h1>{{ session('flash_message')}}</h1>
-            @endif
+        <div class = "toppage">
+            <h1>TOPページ</h1>
         </div>
-        <div class = "complete_error_message">
-            @if(session('flash_error_message'))
-                    <h1>{{ session('flash_error_message')}}</h1>
-            @endif
-        </div>
-        <div align ="center"><button onclick="location.href='/top'" class ="btn" >TOPページへ戻る</button> </div>
         <footer>Copyright D.I.Works | D.I.blog is the one which provides A to Z about programming</footer>
     </body>
 </html>

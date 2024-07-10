@@ -70,4 +70,9 @@ class UsersController extends Controller
 
         return view('regist_complete');
     }
+
+    public function top()
+    {
+        return view('top');
+    }
 }
