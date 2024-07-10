@@ -23,6 +23,7 @@ class User extends Authenticatable
 
     //usersテーブルのカラム名（自動採番・登録されるカラム以外）
     protected $fillable = [
+        'id',
         'family_name',
         'last_name',
         'family_name_kana',
@@ -35,7 +36,9 @@ class User extends Authenticatable
         'address_1',
         'address_2',
         'authority',
-        'delete_flag'
+        'delete_flag',
+        'registered_time',
+        'update_time'
     ];
 
     /**

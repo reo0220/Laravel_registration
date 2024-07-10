@@ -21,3 +21,5 @@ Route::post('/confirm', 'App\Http\Controllers\UsersController@regist_post');
 Route::post('/complete','App\Http\Controllers\UsersController@store');
 //トップページ
 Route::get('/top', 'App\Http\Controllers\UsersController@top');
+//アカウント一覧
+Route::get('/list', 'App\Http\Controllers\UsersController@index');

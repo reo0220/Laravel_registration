@@ -76,6 +76,16 @@ main{
     margin-top: 200px;
 }
 
+th{
+    text-align: center;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+td{
+    text-align: center;
+}
+
 footer{
     position: fixed;
     left: 0;

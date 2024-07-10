@@ -75,4 +75,11 @@ class UsersController extends Controller
     {
         return view('top');
     }
+
+    public function index()
+    {
+        $users = User::all();
+        return view('list', compact('users'));
+    }
+
 }

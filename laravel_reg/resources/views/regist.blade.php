@@ -13,6 +13,9 @@
             <li>登録フォーム</li>
             <li>問い合わせ</li>
             <li>その他</li>
+            <li>
+                <button onclick="location.href='/list'" class ="btn">アカウント一覧</button>
+            </li>
         </ul>
         <main>
             <h2>アカウント登録</h2>
