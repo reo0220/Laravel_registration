@@ -20,10 +20,10 @@
         <main>
             <h2>アカウント一覧</h2>
             <div align="center">
-                <table border = '1' cellpadding='0' cellspacing='0'>
+                <table border = '1' cellpadding='0' cellspacing='0' width='1180px'>
                     <tr>
                         <th>ID</th>
-                        <th>名前(姓)</th>
+                        <th>名前(姓)</th>'
                         <th>名前(名)</th>
                         <th>カナ(姓)</th>
                         <th>カナ(名)</th>
@@ -70,10 +70,18 @@
                                     }
                                 ?>
                             </td>
-                            <td>{{ $user->registered_time }}</td>
-                            <td>{{ $user->update_time }}</td>
-                            <td><a href = '/update'>更新</a></td>
-                            <td><a href = '/delete'>削除</a></td>
+                            <td>
+                                <?php
+                                    echo date("Y/m/d",  strtotime("$user->registered_time"));
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                    echo date("Y/m/d",  strtotime("$user->update_time"));
+                                ?>
+                            </td>
+                            <td><a href = '/update' style="text-decoration:none;">更新</a></td>
+                            <td><a href = '/delete' style="text-decoration:none;">削除</a></td>
                         </tr>
                     @endforeach
                 </table>
