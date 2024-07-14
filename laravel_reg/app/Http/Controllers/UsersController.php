@@ -71,15 +71,45 @@ class UsersController extends Controller
         return view('regist_complete');
     }
 
+    //トップ画面
     public function top()
     {
         return view('top');
     }
 
+    //アカウント一覧
     public function index()
     {
         $users = User::orderBy('id', 'desc')->get();
         return view('list', compact('users'));
     }
 
+    //アカウント削除画面
+    public function account_deletion()
+    {
+        //URLのパラメータを取得
+        $user_id = $_GET["user_id"];
+        //取得したidのアカウントのデータを取得
+        $users = User::where('id',$user_id)->get();
+        return view('delete',compact('users'));
+    }
+
+    //アカウント削除確認画面
+    public function delete_confirm(Request $request)
+    {
+        $id = $request->input('id');
+        return view('delete_confirm',[
+            'id' => $id
+        ]);
+    }
+
+    public function delete_complete(Request $request)
+    {
+        //削除フラグの更新エラー直すd
+        $id = $request->input('id');
+        registration_laravel::table('users')
+        ->where('id',$id) // 条件が必要な場合はwhere()など指定可能
+        ->update(['delete_flag' => 1]);
+        return view('delete_complete');
+    }
 }

@@ -86,6 +86,17 @@ td{
     text-align: center;
 }
 
+.delete_confirm_message{
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+    margin-top: 200px;
+}
+
+a:visited{
+    color: black;
+}
+
 footer{
     position: fixed;
     left: 0;
