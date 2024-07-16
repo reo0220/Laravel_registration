@@ -29,3 +29,5 @@ Route::get('/delete','App\Http\Controllers\UsersController@account_deletion');
 Route::post('/delete_confirm', 'App\Http\Controllers\UsersController@delete_confirm');
 //アカウント削除完了画面
 Route::post('/delete_complete', 'App\Http\Controllers\UsersController@delete_complete');
+//アカウント更新
+Route::get('/update','App\Http\Controllers\UsersController@account_update');

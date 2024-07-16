@@ -121,6 +121,12 @@ class UsersController extends Controller
 
         return view('delete_complete');
     }
-    
-    
+
+    //アカウント更新
+    public function account_update()
+    {
+        $user_id = $_GET["user_id"];
+        $users = User::where('id',$user_id)->get();
+        return view('update',compact('users'));
+    }        
 }

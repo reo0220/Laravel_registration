@@ -80,7 +80,7 @@
                                     echo date("Y/m/d",  strtotime("$user->update_time"));
                                 ?>
                             </td>
-                            <td><a href = '/update' style="text-decoration:none;">更新</a></td>
+                            <td><a href = '/update?user_id={{$user->id}}' style="text-decoration:none;">更新</a></td>
                             <!--URLに削除ボタンをクリックしたアカウントのidを渡す-->
                             <td><a href = '/delete?user_id={{$user->id}}' style="text-decoration:none;">削除</a></td>
                         </tr>
