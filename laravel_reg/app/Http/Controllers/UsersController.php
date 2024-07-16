@@ -84,7 +84,7 @@ class UsersController extends Controller
         return view('list', compact('users'));
     }
 
-    //アカウント削除画面
+    //アカウント削除
     public function account_deletion()
     {
         //URLのパラメータを取得
@@ -94,7 +94,7 @@ class UsersController extends Controller
         return view('delete',compact('users'));
     }
 
-    //アカウント削除確認画面
+    //アカウント削除確認
     public function delete_confirm(Request $request)
     {
         $id = $request->input('id');
@@ -103,13 +103,24 @@ class UsersController extends Controller
         ]);
     }
 
+   //アカウント削除完了
     public function delete_complete(Request $request)
     {
-        //削除フラグの更新エラー直すd
         $id = $request->input('id');
-        registration_laravel::table('users')
-        ->where('id',$id) // 条件が必要な場合はwhere()など指定可能
-        ->update(['delete_flag' => 1]);
+
+        //削除ぼたんをクリックしたidのアカウントの削除フラグを「1」に変更
+        $result = User::where('id', '=', $id)->update([
+            'delete_flag' => '1',
+        ]);
+
+        if(!empty($result)){
+            session()->flash('flash_message','削除完了しました');
+        }else{
+            session()->flash('flash_error_message','エラーが発生したためアカウント削除できません。');
+        }
+
         return view('delete_complete');
     }
+    
+    
 }

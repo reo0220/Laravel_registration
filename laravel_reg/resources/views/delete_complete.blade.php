@@ -17,3 +17,18 @@
                 <button onclick="location.href='/list'" class ="btn">アカウント一覧</button>
             </li>
         </ul>
+        <h2 class = "complete_h2">アカウント削除完了画面</h2>
+        @if(session('flash_message'))
+            <div class = "complete_message">
+                <h1>{{ session('flash_message')}}</h1>
+            </div>
+        @endif
+        @if(session('flash_error_message'))
+            <div class = "complete_error_message">
+            <h1>{{ session('flash_error_message')}}</h1>
+            </div>
+        @endif
+        <div align ="center"><button onclick="location.href='/top'" class ="btn" >TOPページへ戻る</button> </div>
+        <footer>Copyright D.I.Works | D.I.blog is the one which provides A to Z about programming</footer>
+    </body>
+</html>
