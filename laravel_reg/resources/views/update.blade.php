@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel = "stylesheet" type = "text/css" href = "{{asset('/css/style.css')}}">
-        <title>アカウント削除</title>
+        <title>アカウント更新</title>
     </head>
     <body>
         <ul class = "header">
@@ -132,6 +132,7 @@
                                                         }?>>管理者</option>
                             </select>
                         </li>
+                        <li><input type="hidden" name="id" value="{{$user->id}}"></li>
                         <li><input type = "submit" class = "submit" value="確認する"></li>
                     </ul>
                 </form>

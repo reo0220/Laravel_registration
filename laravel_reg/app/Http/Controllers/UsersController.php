@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //Userモデルをuseする
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -128,5 +129,86 @@ class UsersController extends Controller
         $user_id = $_GET["user_id"];
         $users = User::where('id',$user_id)->get();
         return view('update',compact('users'));
-    }        
+    }     
+    
+    public function update_confirm(Request $request)
+    {
+        $id = $request->input('id');
+        $family_name = $request->input('family_name');
+        $last_name = $request->input('last_name');
+        $family_name_kana = $request->input('family_name_kana');
+        $last_name_kana = $request->input('last_name_kana');
+        $mail = $request->input('mail');
+        $password = $request->input('password');
+        $gender = $request->input('gender');
+        $postal_code = $request->input('postal_code');
+        $prefecture = $request->input('prefecture');
+        $address_1 = $request->input('address_1');
+        $address_2 = $request->input('address_2');
+        $authority = $request->input('authority');
+
+        return view('update_confirm', [
+            'id' => $id,
+            'family_name' => $family_name,
+            'last_name' => $last_name,
+            'family_name_kana' => $family_name_kana,
+            'last_name_kana' => $last_name_kana,
+            'mail' => $mail,
+            'password' => $password,
+            'gender' => $gender,
+            'postal_code' => $postal_code,
+            'prefecture' => $prefecture,
+            'address_1' => $address_1,
+            'address_2' => $address_2,
+            'authority' => $authority,
+        ]);
+    }
+
+    //アカウント更新完了
+    public function update_complete(Request $request)
+    {
+        $id = $request->input('id');
+        $family_name = $request->input('family_name');
+        $last_name = $request->input('last_name');
+        $family_name_kana = $request->input('family_name_kana');
+        $last_name_kana = $request->input('last_name_kana');
+        $mail = $request->input('mail');
+        $password = $request->input('password');
+        $gender = $request->input('gender');
+        $postal_code = $request->input('postal_code');
+        $prefecture = $request->input('prefecture');
+        $address_1 = $request->input('address_1');
+        $address_2 = $request->input('address_2');
+        $authority = $request->input('authority');
+
+        $result = User::where('id', '=', $id)->update([
+            'family_name' => $family_name,
+            'last_name' => $last_name,
+            'family_name_kana' => $family_name_kana,
+            'last_name_kana' => $last_name_kana,
+            'mail' => $mail,
+            'password' => Hash::make($password),
+            'gender' => $gender,
+            'postal_code' => $postal_code,
+            'prefecture' => $prefecture,
+            'address_1' => $address_1,
+            'address_2' => $address_2,
+            'authority' => $authority,
+        ]);
+
+        $user = App\Models\User::where('id',$id)->first();
+        if($user->isDirty() == true){
+            session()->flash('flash_message','更新完了しました');
+        }else{
+            session()->flash('flash_error_message','エラーが発生したためアカウント更新できません。');
+        }
+        
+
+            
+
+        return view('update_complete');
+    }
+
+        
+    
 }

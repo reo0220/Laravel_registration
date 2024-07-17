@@ -31,3 +31,7 @@ Route::post('/delete_confirm', 'App\Http\Controllers\UsersController@delete_conf
 Route::post('/delete_complete', 'App\Http\Controllers\UsersController@delete_complete');
 //アカウント更新
 Route::get('/update','App\Http\Controllers\UsersController@account_update');
+//アカウント更新確認
+Route::post('/update_confirm','App\Http\Controllers\UsersController@update_confirm');
+//アカウント更新完了
+Route::post('/update_complete','App\Http\Controllers\UsersController@update_complete');
