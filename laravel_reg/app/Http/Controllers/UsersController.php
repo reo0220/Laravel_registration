@@ -196,15 +196,11 @@ class UsersController extends Controller
             'authority' => $authority,
         ]);
 
-        $user = App\Models\User::where('id',$id)->first();
-        if($user->isDirty() == true){
+        if(!empty($result)){
             session()->flash('flash_message','更新完了しました');
         }else{
             session()->flash('flash_error_message','エラーが発生したためアカウント更新できません。');
         }
-        
-
-            
 
         return view('update_complete');
     }
