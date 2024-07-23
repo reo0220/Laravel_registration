@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 
 //アカウント登録画面
 Route::get('form', 'App\Http\Controllers\UsersController@regist');
@@ -35,3 +37,20 @@ Route::get('/update','App\Http\Controllers\UsersController@account_update');
 Route::post('/update_confirm','App\Http\Controllers\UsersController@update_confirm');
 //アカウント更新完了
 Route::post('/update_complete','App\Http\Controllers\UsersController@update_complete');
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
